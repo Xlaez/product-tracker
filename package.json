@@ -1,0 +1,25 @@
+{
+  "name": "item-tracker",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "node --watch index.js",
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "@dolphjs/core": "^0.0.1-beta",
+    "bcryptjs": "^2.4.3",
+    "cloudinary": "^1.37.0",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "helmet": "^7.0.0",
+    "joi": "^17.9.2",
+    "jsonwebtoken": "^9.0.0",
+    "mongoose": "^7.2.1",
+    "nodemailer": "^6.9.3"
+  },
+  "devDependencies": {
+    "dotenv": "^16.0.3"
+  }
+}
