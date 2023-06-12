@@ -101,7 +101,7 @@ router.patch(
 router.get("/api/products", validate(productValidation.getProduct), getProduct);
 router.get(
   "/api/products/all",
-  authroizeUser,
+  // authroizeUser,
   validate(productValidation.getProducts),
   getProducts
 );
