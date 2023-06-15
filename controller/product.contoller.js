@@ -18,24 +18,22 @@ const newProduct = catchAsync(async (req, res) => {
 
 const getProduct = catchAsync(async (req, res) => {
   const { trackingId, referenceNo } = req.query;
-  let queryObj = { trackingId };
-  if (referenceNo) queryObj = { referenceNo };
-  const product = await Product.findOne(queryObj).lean();
+  const product = await Product.findOne({$or: [{trackingId}, {referenceNo: trackingId}]}).lean();
   if (!product) throw new AppRes(httpStatus.NOT_FOUND, "resource not found");
   res.status(httpStatus.OK).json({ data: product });
 });
 
 const getProducts = catchAsync(async (req, res) => {
-  const { limit, page } = req.query;
-  const skip = (+page - 1) * +limit;
+  // const { limit, page } = req.query;
+  // const skip = (+page - 1) * +limit;
 
   const products = await Product.find({})
-    .limit(limit)
-    .skip(skip)
+    // .limit(limit)
+    // .skip(skip)
     .select(["-__v"]);
   if (!products) throw new AppRes(httpStatus.NOT_FOUND, "resources not found");
-  const totalProducts = await Product.find({}).countDocuments();
-  res.status(httpStatus.OK).json({ data: { products, totalProducts } });
+  // const totalProducts = await Product.find({}).countDocuments();
+  res.status(httpStatus.OK).json(products);
 });
 
 const editProduct = catchAsync(async (req, res) => {

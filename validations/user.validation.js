@@ -3,7 +3,7 @@ const { password } = require("./custom.validation");
 
 const createUser = {
   body: Joi.object().keys({
-    username: Joi.string().required().trim(),
+    username: Joi.string().trim(),
     email: Joi.string().trim().required().email(),
     password: Joi.custom(password).required(),
   }),

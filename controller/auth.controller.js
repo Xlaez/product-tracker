@@ -14,13 +14,15 @@ const generateJsonToken = async (userId) => {
 const createUser = catchAsync(async (req, res) => {
   const { body } = req;
   await User.create({
-    ...body,
+    email: body.email,
     password: hashSync(body.password, 11),
+    isValid: true,
   });
-  const digit = uniqueFiveDigits();
-  await Digit.create({ digit, email: body.email });
+  // const digit = uniqueFiveDigits();
+  // await Digit.create({ digit, email: body.email });
   // SEND EMAIL TO USER EMAIL FOR VERIFICATION
-  await sendMail(body.email, digit, "Verify Your Email");
+  // await sendMail(body.email, digit, "Verify Your Email");
+  await sendMail(body.email, "", "Account Created");
   res.status(httpStatus.CREATED).json({ message: "success" });
 });
 

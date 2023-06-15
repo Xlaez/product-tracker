@@ -30,24 +30,40 @@ const emailTexts = {
     If you did not make this request ignore this email. 
 
     `,
+  accountCreated: (link) => `
+    <h2>Dear user</h2>
+    <p>Your account has been created for the TNT site,
+    you are an admin and can now visit the dashboard to add products</p>
+    <a href=${link}>Go To Dashboard</a>
+    `,
 };
 
-const sendEmail = async (to, subject, text) => {
-  const msg = { from: process.env.EMAIL_FROM, to, subject, text };
+const sendEmail = async (to, subject, text, type) => {
+  let msg = { from: process.env.EMAIL_FROM, to, subject, text };
+  if (type === "html")
+    msg = { from: process.env.EMAIL_FROM, to, subject, html: text };
   await transport.sendMail(msg);
 };
 
 const sendMail = async (to, code, subject) => {
   let text = "";
+  let html = "";
   if (subject === "Verify Your Email") {
     text = emailTexts.verifyMail(code);
   } else if (subject === "Reset Password") {
     text = emailTexts.passwordReset(code);
   } else if (subject === "Update Email") {
     text = emailTexts.emailReset(code);
+  } else if (subject === "Account Created") {
+    html = emailTexts.accountCreated("https://tnt.com/dashboard");
   }
 
-  await sendEmail(to, subject, text);
+  await sendEmail(
+    to,
+    subject,
+    text !== "" ? text : html,
+    text !== "" ? "text" : "html"
+  );
 };
 
 module.exports = sendMail;

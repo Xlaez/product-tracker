@@ -7,36 +7,21 @@ const ProductSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    sendersName: {
+    sendersInfo: {
       type: String,
       required: true,
     },
-    receiversName: {
-      type: String,
-      required: true,
-    },
-    deliveryDetails: {
+    receiversAddress: {
       type: String,
       required: true,
     },
     description: {
-      quantity: {
-        type: Number,
-        default: 0,
-      },
-      size: {
-        type: String,
-      },
-      color: {
-        type: String,
-        default: "N/A",
-      },
-      contact: {
-        type: String,
-      },
-      country: {
-        type: String,
-      },
+      type: String,
+      required:true,
+    },
+    country: {
+      type: String,
+      required:true,
     },
     imgurl: {
       type: String,
