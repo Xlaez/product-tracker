@@ -18,7 +18,9 @@ const newProduct = catchAsync(async (req, res) => {
 
 const getProduct = catchAsync(async (req, res) => {
   const { trackingId, referenceNo } = req.query;
-  const product = await Product.findOne({$or: [{trackingId}, {referenceNo: trackingId}]}).lean();
+  const product = await Product.findOne({
+    $or: [{ trackingId }, { referenceNo: trackingId }],
+  }).lean();
   if (!product) throw new AppRes(httpStatus.NOT_FOUND, "resource not found");
   res.status(httpStatus.OK).json({ data: product });
 });

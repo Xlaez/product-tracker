@@ -1,4 +1,4 @@
-const { mongoose } = require("@dolphjs/core");
+const { mongoose } = require("mongoose");
 const { compare } = require("bcryptjs");
 
 const UserSchema = new mongoose.Schema(

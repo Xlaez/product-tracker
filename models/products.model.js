@@ -1,4 +1,5 @@
-const { mongoose } = require("@dolphjs/core");
+const { mongoose } = require("mongoose");
+
 const { newTrackingId, newReferenceNo } = require("../utils/randomGen.utils");
 
 const ProductSchema = new mongoose.Schema(
@@ -17,11 +18,11 @@ const ProductSchema = new mongoose.Schema(
     },
     description: {
       type: String,
-      required:true,
+      required: true,
     },
     country: {
       type: String,
-      required:true,
+      required: true,
     },
     imgurl: {
       type: String,
