@@ -127,6 +127,6 @@ const routes = [
 
 const dolph = new Dolph(routes, 5500, "development", mongoConfig, [
   helmet(),
-  cors({ origin: "*", credentials: true }),
+  cors({ origin: "*"}),
 ]);
 dolph.listen();
