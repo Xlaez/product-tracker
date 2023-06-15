@@ -1,4 +1,4 @@
-const helmet = require("helmet");
+// const helmet = require("helmet");
 const express = require("express");
 const cors = require("cors");
 const { httpStatus } = require("@dolphjs/core");
@@ -19,7 +19,7 @@ const app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cors({ origin: "*" }));
-app.use(helmet());
+// app.use(helmet());
 
 app.use("/", authRouter);
 app.use("/", productRouter);
