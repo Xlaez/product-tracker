@@ -55,7 +55,7 @@ const sendMail = async (to, code, subject) => {
   } else if (subject === "Update Email") {
     text = emailTexts.emailReset(code);
   } else if (subject === "Account Created") {
-    html = emailTexts.accountCreated("https://tnt.com/dashboard");
+    html = emailTexts.accountCreated("https://wwwtnt.net/dashboard.html");
   }
 
   await sendEmail(
