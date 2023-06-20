@@ -60,7 +60,7 @@ const deleteProduct = catchAsync(async (req, res) => {
       httpStatus.INTERNAL_SERVER_ERROR,
       "resource could not be deleted"
     );
-  throw new AppRes(httpStatus.OK, "resource deleted");
+  res.status(httpStatus.OK).json({message: "resource deleted"});
 });
 
 module.exports = {
