@@ -38,6 +38,14 @@ const ProductSchema = new mongoose.Schema(
       required: true,
       index: true,
     },
+    location: {
+      type: String,
+      required: true,
+    },
+    destination: {
+      type: String,
+      required: true,
+    },
   },
   { timestamps: true }
 );

@@ -5,8 +5,10 @@ const createProduct = {
     name: Joi.string().required(),
     sendersInfo: Joi.string().required(),
     receiversAddress: Joi.string().required(),
-    country: Joi.string().required(),    
+    country: Joi.string().required(),
     description: Joi.string().required(),
+    location: Joi.string().required(),
+    destination: Joi.string().required(),
   }),
 };
 
@@ -38,6 +40,8 @@ const editProduct = {
     name: Joi.string(),
     receiversAddress: Joi.string(),
     sendersInfo: Joi.string(),
+    location: Joi.string(),
+    destination: Joi.string(),
   }),
 };
 
