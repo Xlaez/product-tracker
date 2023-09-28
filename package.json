@@ -8,7 +8,7 @@
     "start": "node index.js"
   },
   "dependencies": {
-    "@dolphjs/core": "^0.0.1-beta",
+    "@dolphjs/core": "0.0.1-beta",
     "bcryptjs": "^2.4.3",
     "cloudinary": "^1.37.0",
     "cors": "^2.8.5",
