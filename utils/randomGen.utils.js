@@ -1,4 +1,4 @@
-const alpNum = "ABCDEFGHIJKLMNOPQRSTUVWYZabcdefghijklmnopqrstuvwxyz1234567890";
+const alpNum = "1234567890";
 
 const newReferenceNo = (length) => {
   let tempAlph = "";
