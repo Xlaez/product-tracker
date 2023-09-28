@@ -10,7 +10,7 @@ const newProduct = catchAsync(async (req, res) => {
     const { url } = await uploadSingle(file.path);
     insertObj.imgurl = url;
   }
-  insertObj.trackingId = newTrackingId(8);
+  insertObj.trackingId = newTrackingId(9);
   insertObj.referenceNo = newReferenceNo(9);
   const prod = await Product.create(insertObj);
   res.status(httpStatus.CREATED).json({ data: prod });
@@ -60,7 +60,7 @@ const deleteProduct = catchAsync(async (req, res) => {
       httpStatus.INTERNAL_SERVER_ERROR,
       "resource could not be deleted"
     );
-  res.status(httpStatus.OK).json({message: "resource deleted"});
+  res.status(httpStatus.OK).json({ message: "resource deleted" });
 });
 
 module.exports = {
